@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Community Issue Reporting System — Report roads, water, electricity, security and waste problems in your district." />
+  <title>CivicAlert — Community Issue Reporting System</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+               viewBox="0 0 24 24" stroke="#1a2744" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+          </svg>
+        </div>
+        CivicAlert
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1 mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="nav-link btn-nav-cta" href="report.html">Report Issue</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════
+       HERO SECTION
+  ════════════════════════════════════════════════════ -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center gy-5">
+
+        <!-- Left column — text -->
+        <div class="col-lg-6">
+          <p class="hero-eyebrow fade-in">Serving All Districts</p>
+          <h1 class="hero-title fade-in fade-in-delay-1">
+            Your Voice.<br>
+            Your <span>Community.</span><br>
+            Our Action.
+          </h1>
+          <p class="hero-subtitle fade-in fade-in-delay-2">
+            CivicAlert empowers residents to report infrastructure problems, safety
+            hazards, and community concerns directly to local government — with
+            real-time tracking and transparent resolutions.
+          </p>
+
+          <div class="d-flex flex-wrap gap-3 fade-in fade-in-delay-3">
+            <a href="report.html" class="btn-primary-cta">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+              Report an Issue
+            </a>
+            <a href="dashboard.html" class="btn-secondary-cta">
+              View Dashboard
+            </a>
+          </div>
+
+          <!-- Stats -->
+          <div class="hero-stats fade-in fade-in-delay-4">
+            <div class="hero-stat">
+              <span class="hero-stat-value" data-count="1247">1,247</span>
+              <span class="hero-stat-label">Issues Reported</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value" data-count="83">83</span>
+              <span class="hero-stat-label">% Resolved</span>
+            </div>
+            <div class="hero-stat">
+              <span class="hero-stat-value" data-count="12">12</span>
+              <span class="hero-stat-label">Districts Active</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right column — visual card -->
+        <div class="col-lg-5 offset-lg-1 hero-visual fade-in fade-in-delay-2">
+          <!-- Floating issue summary card -->
+          <div class="hero-card-float mb-3">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <span style="font-size:.82rem; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:rgba(255,255,255,.55);">Live Issues Map</span>
+              <span class="badge-status pending badge" style="font-size:.7rem; background:rgba(59,130,246,.2); color:#93c5fd; border:1px solid rgba(59,130,246,.3);">
+                <span style="width:6px;height:6px;background:#93c5fd;border-radius:50%;display:inline-block;animation:pulse 1.4s ease-out infinite;"></span>
+                Live
+              </span>
+            </div>
+
+            <!-- Stylised map placeholder -->
+            <div class="map-placeholder mb-3">
+              <div class="map-grid"></div>
+              <!-- Pins at different positions -->
+              <div class="map-pin amber" style="top:28%; left:38%;">
+                <div class="map-pin-pulse" style="color:#f59e0b;"></div>
+              </div>
+              <div class="map-pin red" style="top:55%; left:62%;">
+                <div class="map-pin-pulse" style="color:#ef4444;"></div>
+              </div>
+              <div class="map-pin green" style="top:40%; left:20%;">
+                <div class="map-pin-pulse" style="color:#10b981;"></div>
+              </div>
+              <div class="map-pin blue" style="top:70%; left:44%;">
+                <div class="map-pin-pulse" style="color:#3b82f6;"></div>
+              </div>
+              <div class="map-pin amber" style="top:20%; left:70%;">
+                <div class="map-pin-pulse" style="color:#f59e0b;"></div>
+              </div>
+
+              <div style="position:relative;z-index:2;text-align:center;color:rgba(255,255,255,.45);font-size:.78rem;">
+                Ikeja • Isolo • V/I • Surulere • Ikoyi
+              </div>
+            </div>
+
+            <!-- Recent issues list -->
+            <div>
+              <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;">
+                <span style="font-size:.78rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45);">Recent Reports</span>
+                <a href="dashboard.html" style="font-size:.75rem;color:var(--amber);">View all →</a>
+              </div>
+
+              <div style="display:flex;flex-direction:column;gap:8px;">
+                <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:1rem;">🛣️</span>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Pothole — Adeniyi-Jones Ave</div>
+                    <div style="font-size:.72rem;color:rgba(255,255,255,.45);">14 Apr 2026</div>
+                  </div>
+                  <span class="badge-status" style="font-size:.68rem;background:rgba(239,68,68,.2);color:#fca5a5;padding:3px 8px;border-radius:12px;white-space:nowrap;">Urgent</span>
+                </div>
+                <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:1rem;">💧</span>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Water shortage — Oke-Afa</div>
+                    <div style="font-size:.72rem;color:rgba(255,255,255,.45);">12 Apr 2026</div>
+                  </div>
+                  <span class="badge-status" style="font-size:.68rem;background:rgba(59,130,246,.2);color:#93c5fd;padding:3px 8px;border-radius:12px;white-space:nowrap;">Pending</span>
+                </div>
+                <div style="background:rgba(255,255,255,.05);border-radius:8px;padding:10px 14px;display:flex;align-items:center;gap:12px;">
+                  <span style="font-size:1rem;">♻️</span>
+                  <div style="flex:1;min-width:0;">
+                    <div style="font-size:.82rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;">Illegal dumping — Mushin Mkt</div>
+                    <div style="font-size:.72rem;color:rgba(255,255,255,.45);">7 Apr 2026</div>
+                  </div>
+                  <span class="badge-status" style="font-size:.68rem;background:rgba(16,185,129,.2);color:#6ee7b7;padding:3px 8px;border-radius:12px;white-space:nowrap;">Resolved</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       HOW IT WORKS
+  ════════════════════════════════════════════════════ -->
+  <section class="section-how">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <p class="section-eyebrow justify-content-center">Simple Process</p>
+        <h2 class="section-title">How CivicAlert Works</h2>
+        <p class="text-slate" style="max-width:520px; margin:0 auto;">
+          From problem spotted to problem solved — CivicAlert makes community
+          reporting fast, transparent, and effective.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Step 1 -->
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="step-card">
+            <span class="step-number">01</span>
+            <div class="step-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+              </svg>
+            </div>
+            <p class="step-title">Submit a Report</p>
+            <p class="step-desc">Fill in the issue details — location, type, and description. You can attach a photo as evidence.</p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="step-card">
+            <span class="step-number">02</span>
+            <div class="step-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"/>
+              </svg>
+            </div>
+            <p class="step-title">Issue is Logged</p>
+            <p class="step-desc">Your report is assigned an ID, timestamped, and forwarded to the relevant district authority within minutes.</p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="step-card">
+            <span class="step-number">03</span>
+            <div class="step-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9"/>
+              </svg>
+            </div>
+            <p class="step-title">Track Progress</p>
+            <p class="step-desc">Monitor your issue on the public dashboard. Status updates from Pending → Under Review → Resolved are posted live.</p>
+          </div>
+        </div>
+
+        <!-- Step 4 -->
+        <div class="col-sm-6 col-lg-3 reveal">
+          <div class="step-card">
+            <span class="step-number">04</span>
+            <div class="step-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"/>
+              </svg>
+            </div>
+            <p class="step-title">Issue Resolved</p>
+            <p class="step-desc">When the problem is fixed, the status is updated to Resolved and residents are notified. Community improved.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ══════════════════════════════════════════════════
+       ISSUE TYPES GRID
+  ════════════════════════════════════════════════════ -->
+  <section class="section-types">
+    <div class="container">
+      <div class="row align-items-center mb-5 reveal">
+        <div class="col-lg-6">
+          <p class="section-eyebrow">What You Can Report</p>
+          <h2 class="section-title">6 Categories of Community Issues</h2>
+        </div>
+        <div class="col-lg-5 offset-lg-1">
+          <p class="text-slate" style="font-size:.95rem;">
+            Every district faces unique challenges. CivicAlert covers the full spectrum
+            of community problems so nothing falls through the cracks.
+          </p>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-6 col-md-4 col-lg-2 reveal">
+          <a href="report.html" class="issue-type-card d-block text-decoration-none">
+            <div class="issue-type-icon road">🛣️</div>
+            <div class="issue-type-label">Road &amp; Traffic</div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 reveal">
+          <a href="report.html" class="issue-type-card d-block text-decoration-none">
+            <div class="issue-type-icon water">💧</div>
+            <div class="issue-type-label">Water Supply</div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 reveal">
+          <a href="report.html" class="issue-type-card d-block text-decoration-none">
+            <div class="issue-type-icon electricity">⚡</div>
+            <div class="issue-type-label">Electricity</div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 reveal">
+          <a href="report.html" class="issue-type-card d-block text-decoration-none">
+            <div class="issue-type-icon security">🔒</div>
+            <div class="issue-type-label">Security</div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 reveal">
+          <a href="report.html" class="issue-type-card d-block text-decoration-none">
+            <div class="issue-type-icon waste">♻️</div>
+            <div class="issue-type-label">Waste &amp; Sanitation</div>
+          </a>
+        </div>
+        <div class="col-6 col-md-4 col-lg-2 reveal">
+          <a href="report.html" class="issue-type-card d-block text-decoration-none">
+            <div class="issue-type-icon other">📋</div>
+            <div class="issue-type-label">Other Issues</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="section-divider"></div>
+
+  <!-- ══════════════════════════════════════════════════
+       SOCIAL MEDIA FEEDS (simulated)
+  ════════════════════════════════════════════════════ -->
+  <section class="section-social">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <p class="section-eyebrow justify-content-center">Community Voices</p>
+        <h2 class="section-title">Social Media Updates</h2>
+        <p class="text-slate" style="max-width:480px; margin:0 auto; font-size:.95rem;">
+          Stay connected. Follow our pages for real-time updates on issues,
+          resolutions, and district news.
+        </p>
+      </div>
+
+      <div class="row g-4">
+        <!-- Facebook feed simulation -->
+        <div class="col-md-6 reveal">
+          <div class="social-feed-box h-100">
+            <div class="social-feed-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+                   fill="#1877f2"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+              CivicAlert — Facebook Page
+            </div>
+            <div class="social-feed-body">
+              <div class="social-post">
+                <div class="social-post-header">
+                  <div class="social-avatar">CA</div>
+                  <div>
+                    <div class="social-author">CivicAlert Official</div>
+                    <div class="social-handle">@CivicAlertNG</div>
+                  </div>
+                  <div class="social-time">2h ago</div>
+                </div>
+                <p class="social-post-text">
+                  The pothole on Adeniyi-Jones Avenue has been escalated to the State Works Ministry.
+                  Repair crews are scheduled for Wednesday morning. Thank you for your patience!
+                  <span class="social-tag">#CivicAlert</span> <span class="social-tag">#Ikeja</span>
+                </p>
+              </div>
+              <div class="social-post">
+                <div class="social-post-header">
+                  <div class="social-avatar" style="background:#2563eb;">AB</div>
+                  <div>
+                    <div class="social-author">Adaeze Bello</div>
+                    <div class="social-handle">Community Member</div>
+                  </div>
+                  <div class="social-time">5h ago</div>
+                </div>
+                <p class="social-post-text">
+                  Just reported the street lights issue on Ogba Road through CivicAlert.
+                  The process was so simple — took less than 3 minutes!
+                  <span class="social-tag">#Community</span>
+                </p>
+              </div>
+              <div class="social-post">
+                <div class="social-post-header">
+                  <div class="social-avatar">CA</div>
+                  <div>
+                    <div class="social-author">CivicAlert Official</div>
+                    <div class="social-handle">@CivicAlertNG</div>
+                  </div>
+                  <div class="social-time">1d ago</div>
+                </div>
+                <p class="social-post-text">
+                  ✅ RESOLVED: Illegal waste dumping behind Mushin Market has been cleared.
+                  LAWMA has also installed signage to deter future offenders.
+                  <span class="social-tag">#Resolved</span> <span class="social-tag">#Mushin</span>
+                </p>
+              </div>
+            </div>
+            <div class="social-disclaimer">
+              Simulated feed — Connect your Facebook Page via Meta Embed API for live content
+            </div>
+          </div>
+        </div>
+
+        <!-- Twitter / X feed simulation -->
+        <div class="col-md-6 reveal">
+          <div class="social-feed-box h-100">
+            <div class="social-feed-header">
+              <svg xmlns="http://www.w3.org/2000/svg" width="17" height="17" viewBox="0 0 24 24"
+                   fill="#1d9bf0"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+              CivicAlert on X (Twitter)
+            </div>
+            <div class="social-feed-body">
+              <div class="social-post">
+                <div class="social-post-header">
+                  <div class="social-avatar" style="background:#0f172a;">CA</div>
+                  <div>
+                    <div class="social-author">CivicAlert</div>
+                    <div class="social-handle">@CivicAlertNG</div>
+                  </div>
+                  <div class="social-time">1h ago</div>
+                </div>
+                <p class="social-post-text">
+                  🚨 URGENT: Water pipe burst reported on Ikoyi Close.
+                  Lagos Water Corp has been notified. Do not consume water from taps in that area until further notice.
+                  <span class="social-tag">#Lagos</span> <span class="social-tag">#WaterCrisis</span>
+                </p>
+              </div>
+              <div class="social-post">
+                <div class="social-post-header">
+                  <div class="social-avatar" style="background:#7c3aed;">TK</div>
+                  <div>
+                    <div class="social-author">Taiwo Kayode</div>
+                    <div class="social-handle">@taiwo_k</div>
+                  </div>
+                  <div class="social-time">3h ago</div>
+                </div>
+                <p class="social-post-text">
+                  My street has had no power for 6 days. Just submitted a report on CivicAlert.
+                  If you're in Surulere, check the dashboard to see if others have reported too.
+                  <span class="social-tag">#Surulere</span> <span class="social-tag">#NEPA</span>
+                </p>
+              </div>
+              <div class="social-post">
+                <div class="social-post-header">
+                  <div class="social-avatar" style="background:#0f172a;">CA</div>
+                  <div>
+                    <div class="social-author">CivicAlert</div>
+                    <div class="social-handle">@CivicAlertNG</div>
+                  </div>
+                  <div class="social-time">6h ago</div>
+                </div>
+                <p class="social-post-text">
+                  April report: 147 issues reported this month. 89 resolved (61%).
+                  Thank you, community! Together we make our districts better.
+                  <span class="social-tag">#CivicAlert</span> <span class="social-tag">#April2026</span>
+                </p>
+              </div>
+            </div>
+            <div class="social-disclaimer">
+              Simulated feed — Connect your X Developer account for live tweets via Twitter API v2
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <!-- Brand -->
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">
+            <div class="brand-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                   viewBox="0 0 24 24" stroke="#1a2744" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+              </svg>
+            </div>
+            CivicAlert
+          </div>
+          <p class="footer-tagline">
+            Empowering communities to report, track, and resolve local
+            infrastructure and safety issues across all districts.
+          </p>
+        </div>
+
+        <!-- Quick Links -->
+        <div class="col-lg-2 col-md-3 col-6">
+          <p class="footer-heading">Navigation</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="report.html">Report Issue</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <!-- Issue Types -->
+        <div class="col-lg-2 col-md-3 col-6">
+          <p class="footer-heading">Issue Types</p>
+          <ul class="footer-links">
+            <li><a href="report.html">Road &amp; Traffic</a></li>
+            <li><a href="report.html">Water Supply</a></li>
+            <li><a href="report.html">Electricity</a></li>
+            <li><a href="report.html">Security</a></li>
+            <li><a href="report.html">Waste Management</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div class="col-lg-4 col-md-6">
+          <p class="footer-heading">Contact</p>
+          <ul class="footer-links">
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:var(--amber)">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              &nbsp;support@civicalert.gov.ng
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:var(--amber)">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              &nbsp;0700-CIVIC-01 (toll-free)
+            </li>
+            <li>
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" style="color:var(--amber)">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              &nbsp;Municipal Building, Secretariat, Ikeja, Lagos
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom bar -->
+      <div class="footer-bottom">
+        <span class="footer-bottom-text">
+          &copy; 2026 CivicAlert. A Public Service Initiative. All rights reserved.
+        </span>
+        <div class="footer-social">
+          <a href="#" title="Facebook">f</a>
+          <a href="#" title="Twitter/X">𝕏</a>
+          <a href="#" title="Instagram">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>

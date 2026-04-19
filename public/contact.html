@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contact CivicAlert — Reach out with questions, partnership requests, or to onboard your district." />
+  <title>Contact — CivicAlert</title>
+
+  <!-- Bootstrap 5 CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- ══════════════════════════════════════════════════
+       NAVBAR
+  ════════════════════════════════════════════════════ -->
+  <nav class="navbar navbar-expand-lg site-navbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">
+        <div class="brand-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+               viewBox="0 0 24 24" stroke="#1a2744" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                  d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+          </svg>
+        </div>
+        CivicAlert
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#mainNav" aria-controls="mainNav"
+              aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-1 mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li class="nav-item"><a class="nav-link" href="about.html">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
+          <li class="nav-item ms-lg-2">
+            <a class="nav-link btn-nav-cta" href="report.html">Report Issue</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ══════════════════════════════════════════════════
+       PAGE HEADER
+  ════════════════════════════════════════════════════ -->
+  <div class="page-header-section">
+    <div class="container page-header-inner">
+      <nav aria-label="breadcrumb" class="breadcrumb-custom mb-3">
+        <ol class="breadcrumb mb-0">
+          <li class="breadcrumb-item"><a href="index.html">Home</a></li>
+          <li class="breadcrumb-item active">Contact</li>
+        </ol>
+      </nav>
+      <h1 class="page-header-title">Get in Touch</h1>
+      <p class="page-header-subtitle">For district onboarding, partnerships, media enquiries, or general support.</p>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       CONTACT CONTENT
+  ════════════════════════════════════════════════════ -->
+  <section class="contact-section">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- ── Contact Form ── -->
+        <div class="col-lg-7">
+          <p class="section-eyebrow">Send a Message</p>
+          <h2 class="section-title mb-4">We'd love to hear from you</h2>
+
+          <!-- Success message (hidden by default) -->
+          <div id="contactSuccess"
+               style="display:none; background:linear-gradient(135deg,#ecfdf5,#d1fae5);
+                      border:1.5px solid #6ee7b7; border-radius:14px; padding:28px 32px;
+                      align-items:flex-start; gap:20px;">
+            <div style="width:52px;height:52px;background:var(--success);border-radius:50%;
+                        display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#fff;">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+              </svg>
+            </div>
+            <div>
+              <h5 style="font-family:'Playfair Display',serif;color:#065f46;margin-bottom:8px;">
+                Message Received!
+              </h5>
+              <p style="color:#047857;font-size:.92rem;margin:0;">
+                Thank you for reaching out. A member of the CivicAlert team will respond
+                within 1–2 business days. For urgent community issues, please use the
+                <a href="report.html" style="color:#047857;font-weight:700;">Report Issue</a> form instead.
+              </p>
+            </div>
+          </div>
+
+          <!-- Contact form -->
+          <form id="contactForm" novalidate>
+
+            <div class="row g-3 mb-3">
+              <div class="col-sm-6">
+                <label for="cName" class="form-label">
+                  Full Name <span class="req">*</span>
+                </label>
+                <input type="text" id="cName" class="form-control"
+                       placeholder="Your full name" required autocomplete="name" />
+                <div class="invalid-feedback">Please enter your name.</div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="cEmail" class="form-label">
+                  Email Address <span class="req">*</span>
+                </label>
+                <input type="email" id="cEmail" class="form-control"
+                       placeholder="you@example.com" required autocomplete="email" />
+                <div class="invalid-feedback">Please enter a valid email.</div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="cPhone" class="form-label">Phone Number</label>
+                <input type="tel" id="cPhone" class="form-control"
+                       placeholder="+234 800 000 0000" autocomplete="tel" />
+              </div>
+
+              <div class="col-sm-6">
+                <label for="cSubject" class="form-label">
+                  Subject <span class="req">*</span>
+                </label>
+                <select id="cSubject" class="form-select" required>
+                  <option value="">Select a subject…</option>
+                  <option>District Onboarding</option>
+                  <option>Partnership / Collaboration</option>
+                  <option>Media Enquiry</option>
+                  <option>Technical Support</option>
+                  <option>Feedback &amp; Suggestions</option>
+                  <option>Other</option>
+                </select>
+                <div class="invalid-feedback">Please select a subject.</div>
+              </div>
+
+              <div class="col-sm-6">
+                <label for="cOrg" class="form-label">Organisation / LGA</label>
+                <input type="text" id="cOrg" class="form-control"
+                       placeholder="e.g. Ikeja Local Government" />
+              </div>
+
+              <div class="col-sm-6">
+                <label for="cHow" class="form-label">How did you hear about us?</label>
+                <select id="cHow" class="form-select">
+                  <option value="">Select…</option>
+                  <option>Social Media</option>
+                  <option>Government Website</option>
+                  <option>Friend / Colleague</option>
+                  <option>News Article</option>
+                  <option>Other</option>
+                </select>
+              </div>
+
+              <div class="col-12">
+                <label for="cMessage" class="form-label">
+                  Message <span class="req">*</span>
+                </label>
+                <textarea id="cMessage" class="form-control" rows="5"
+                          placeholder="Tell us about your enquiry, district, or how you'd like to work with CivicAlert…"
+                          required></textarea>
+                <div class="invalid-feedback">Please enter your message.</div>
+              </div>
+            </div>
+
+            <button type="submit" class="btn-submit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              Send Message
+            </button>
+          </form>
+        </div>
+
+        <!-- ── Contact Info Sidebar ── -->
+        <div class="col-lg-5">
+          <p class="section-eyebrow">Contact Details</p>
+          <h2 class="section-title mb-3">Reach Us Directly</h2>
+          <p style="color:var(--slate); font-size:.92rem; margin-bottom:24px;">
+            We're a public service initiative. Our team is available Monday to Friday,
+            8am–5pm WAT.
+          </p>
+
+          <!-- Contact items -->
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Email</div>
+              <div class="contact-info-value">support@civicalert.gov.ng</div>
+              <div class="contact-info-sub">For general enquiries — response within 24h</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Phone</div>
+              <div class="contact-info-value">0700-CIVIC-01</div>
+              <div class="contact-info-sub">Toll-free hotline — Mon–Fri, 8am–5pm</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Address</div>
+              <div class="contact-info-value">Municipal Building, Secretariat Road</div>
+              <div class="contact-info-sub">Ikeja, Lagos State, Nigeria</div>
+            </div>
+          </div>
+
+          <div class="contact-info-item">
+            <div class="contact-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                   viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+              </svg>
+            </div>
+            <div>
+              <div class="contact-info-label">Office Hours</div>
+              <div class="contact-info-value">Monday – Friday: 8:00am – 5:00pm</div>
+              <div class="contact-info-sub">Closed weekends and public holidays</div>
+            </div>
+          </div>
+
+          <!-- Social links -->
+          <div style="margin-top:28px; padding-top:24px; border-top:1px solid var(--border);">
+            <p style="font-size:.82rem; font-weight:700; text-transform:uppercase; letter-spacing:.1em; color:var(--slate-light); margin-bottom:14px;">
+              Follow on Social Media
+            </p>
+            <div class="d-flex gap-3">
+              <a href="#" style="display:flex;align-items:center;gap:8px;background:#1877f2;color:#fff;padding:8px 16px;border-radius:8px;font-size:.84rem;font-weight:700;text-decoration:none;">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+                Facebook
+              </a>
+              <a href="#" style="display:flex;align-items:center;gap:8px;background:#0f172a;color:#fff;padding:8px 16px;border-radius:8px;font-size:.84rem;font-weight:700;text-decoration:none;">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.746l7.73-8.835L1.254 2.25H8.08l4.253 5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+                Twitter / X
+              </a>
+            </div>
+          </div>
+
+          <!-- Quick action box -->
+          <div style="margin-top:28px; background:var(--navy-dark); border-radius:14px; padding:24px;">
+            <p style="font-weight:700; color:var(--white); margin-bottom:8px; font-size:.95rem;">
+              Have a community issue to report?
+            </p>
+            <p style="font-size:.84rem; color:rgba(255,255,255,.55); margin-bottom:16px;">
+              Don't use this contact form for issue reports. Use the dedicated form instead.
+            </p>
+            <a href="report.html" class="btn-primary-cta" style="padding:10px 22px; font-size:.88rem;">
+              Report an Issue
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════════
+       MAP PLACEHOLDER
+  ════════════════════════════════════════════════════ -->
+  <div style="background:var(--off-white); padding-bottom:64px;">
+    <div class="container">
+      <div class="map-placeholder" style="height:280px;">
+        <div class="map-grid"></div>
+        <!-- Representative pins -->
+        <div class="map-pin amber" style="top:35%; left:42%;"><div class="map-pin-pulse" style="color:#f59e0b;"></div></div>
+        <div class="map-pin blue"  style="top:52%; left:65%;"><div class="map-pin-pulse" style="color:#3b82f6;"></div></div>
+        <div class="map-pin green" style="top:45%; left:25%;"><div class="map-pin-pulse" style="color:#10b981;"></div></div>
+        <div class="map-pin red"   style="top:62%; left:48%;"><div class="map-pin-pulse" style="color:#ef4444;"></div></div>
+        <div style="position:relative;z-index:2;text-align:center;">
+          <div style="background:rgba(26,39,68,.7);display:inline-block;padding:10px 22px;border-radius:8px;border:1px solid rgba(245,158,11,.3);">
+            <p style="color:rgba(255,255,255,.7);font-size:.85rem;margin:0;">
+              Interactive map integration available with Google Maps or OpenStreetMap API
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══════════════════════════════════════════════════
+       FOOTER
+  ════════════════════════════════════════════════════ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4 col-md-6">
+          <div class="footer-brand">
+            <div class="brand-icon">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none"
+                   viewBox="0 0 24 24" stroke="#1a2744" stroke-width="2.5">
+                <path stroke-linecap="round" stroke-linejoin="round"
+                      d="M3 21v-4m0 0V5a2 2 0 012-2h6.5l1 1H21l-3 6 3 6h-8.5l-1-1H5a2 2 0 00-2 2zm9-13.5V9"/>
+              </svg>
+            </div>
+            CivicAlert
+          </div>
+          <p class="footer-tagline">Empowering communities across all districts to report and resolve local issues.</p>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <p class="footer-heading">Navigation</p>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="report.html">Report Issue</a></li>
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-2 col-md-3 col-6">
+          <p class="footer-heading">Issue Types</p>
+          <ul class="footer-links">
+            <li><a href="report.html">Road &amp; Traffic</a></li>
+            <li><a href="report.html">Water Supply</a></li>
+            <li><a href="report.html">Electricity</a></li>
+            <li><a href="report.html">Security</a></li>
+            <li><a href="report.html">Waste Management</a></li>
+          </ul>
+        </div>
+        <div class="col-lg-4 col-md-6">
+          <p class="footer-heading">Contact</p>
+          <ul class="footer-links">
+            <li>support@civicalert.gov.ng</li>
+            <li>0700-CIVIC-01 (toll-free)</li>
+            <li>Municipal Building, Secretariat, Ikeja</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span class="footer-bottom-text">&copy; 2026 CivicAlert. A Public Service Initiative.</span>
+        <div class="footer-social">
+          <a href="#">f</a>
+          <a href="#">𝕏</a>
+          <a href="#">in</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="js/script.js"></script>
+</body>
+</html>
